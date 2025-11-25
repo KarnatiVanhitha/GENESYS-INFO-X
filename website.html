@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GENESYSINFOX</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body{
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-color: white;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 40px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        z-index: 1000;
+      }
+
+      nav img {
+        background: transparent;
+        mix-blend-mode: multiply;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        position: relative;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        padding: 8px 12px;
+        display: block;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #0078ff;
+      }
+
+      nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        list-style: none;
+        padding: 10px 0;
+        margin: 0;
+        min-width: 200px;
+        box-shadow: 0 4px 10px green;
+        border-radius: 6px;
+      }
+
+      nav ul li ul li {
+        width: 100%;
+      }
+
+      nav ul li ul li a {
+        padding: 10px 16px;
+        color: #333;
+        font-weight: 400;
+      }
+
+      nav ul li ul li a:hover {
+        background-color: #f7faff;
+        color: #0078ff;
+      }
+
+      nav ul li:hover > ul {
+        display: block;
+      }
+
+      button {
+        background-color: rgb(253, 253, 128);
+        color: black;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        box-shadow: 0 0 20px white;
+        font-weight: bolder;
+      }
+
+      button:hover {
+        background-color: rgb(253, 253, 128);
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 20px;
+        background-color: #f8f8f8;
+        font-size: 14px;
+        border-bottom: 1px solid #e0e0e0;
+        height: 70px;
+        background-color: rgb(253, 253, 128);
+      }
+
+      .top .icons a {
+        color: #333;
+        text-decoration: none;
+        margin-right: 15px;
+        font-size: 18px;
+        transition: color 0.3s ease;
+      }
+
+      .top .icons a:hover {
+        color: #0078ff;
+      }
+
+      .top .details {
+        text-align: right;
+        line-height: 1;
+      }
+
+      .top .details a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+      }
+
+      .top .details a:hover {
+        color: #0078ff;
+      }
+
+      .slider {
+        position: relative;
+        height: 80vh;
+        width: 100%;
+        animation: slide 20s infinite;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      @keyframes slide {
+        0% {
+          background-image: url("https://dc-mkt-prod.cloud.bosch.tech/xrm/media/global/industries_1/semiconductors_and_electronics/stage-semiconductors-and-electronics-industry.jpg");
+        }
+        33% {
+          background-image: url("https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/WORKPLACEV9CMS/2bgqjhmw_0iifqf_p8twtq.jpg");
+        }
+        66% {
+          background-image: url("https://wallpapers.com/images/hd/futuristic-software-development-concept-qcb8jmsrfwt04l91.jpg");
+        }
+        100% {
+          background-image: url("https://builtin.com/sites/www.builtin.com/files/styles/og/public/2023-05/largest%20software%20companies.jpg");
+        }
+      }
+      .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 2em;
+        text-align: center;
+      }
+      .overlay button {
+        padding: 15px 30px;
+        border-radius: 15px;
+      }
+      .card #one {
+        display: flex;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 300px;
+        height: 100px;
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
+        font-size: x-large;
+      }
+      .card #two {
+        display: flex;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 300px;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
+        font-size: x-large;
+      }
+      .card #three {
+        display: flex;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 300px;
+        height: 100px;
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
+        font-size: x-large;
+      }
+      .card {
+        display: flex;
+        gap: 150px;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding-top: 70vh;
+      }
+      .card #one:hover{
+        transform: translateY(-5px);
+      }
+      .card #two:hover{
+        transform: translateY(-5px);
+      }
+      .card #three:hover{
+        transform:translateY(-5px);
+      }
+      .whoweare {
+        display: flex;
+        margin-top: 150px;
+        gap: 150px;
+      }
+      .whoweare #img img {
+        width: 500px;
+        height: 700px;
+      }
+      .whoweare #content {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 400px;
+        height: 600px;
+        padding: 10px;
+        padding-top: 20px;
+        line-height: 2;
+      }
+.our {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 30px;
+  padding: 20px 40px;
+}
+
+
+.ourstrength {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  height: 500px;
+  width: 400px;
+}
+
+.ourstrength h6 {
+  color: #0078ff;
+  font-size: 14px;
+}
+
+.ourstrength h3 {
+  font-size: 28px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+.ourstrength p{
+  line-height: 1.5;
+}
+
+.number {
+  display: flex;
+  gap: 100px;
+  margin-top: 100px;
+}
+
+.number-box h4 {
+  color: #f5c400;
+  font-size: 32px;
+  margin: 0;
+}
+
+.number-box span {
+  font-size: 14px;
+}
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.card-item1 {
+  background: rgb(230, 247, 254);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.card-item1:hover{
+  background-color:white;
+}
+.card-item2 {
+  background:rgb(224, 236, 250);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.card-item2:hover{
+  background-color: white;
+}
+.card-item3 {
+  background:rgb(250, 227, 227);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.card-item3:hover{
+  background-color:white;
+}
+.card-item4 {
+  background:rgb(249, 243, 236);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.card-item4:hover{
+  background-color:white;
+}
+
+.card-item h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.icon1 {
+  width: 55px;
+  height: 55px;
+  background: #e8f0ff;
+  color: rgb(70, 196, 246);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.icon2 {
+  width: 55px;
+  height: 55px;
+  background: #e8f0ff;
+  color: rgb(82, 82, 247);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.icon3 {
+  width: 55px;
+  height: 55px;
+  background: #e8f0ff;
+  color: rgb(249, 91, 91);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.icon4 {
+  width: 55px;
+  height: 55px;
+  background: #e8f0ff;
+  color: rgb(253, 181, 48);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.blocks{
+  margin-top: 250px;
+}
+.image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.Consulting{
+  background:white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+  margin-left: 130px;
+}
+.CD{
+  display: flex;
+  gap:200px;
+
+}
+.dataanalysics{
+   background:white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+  margin-left: 130px;
+}
+.IT{
+  background:white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+}
+.SD{
+  background:white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+
+}
+.IIS{
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+.AI{
+  background:white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+  margin-left: 130px;
+
+}
+.CS{
+  background:white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+  margin-left: 130px;
+}
+.AICS{
+  display: flex;
+  gap:200px;
+  margin-top: 30px;
+}
+svg{
+  color: rgb(255, 230, 0);
+ margin-right: 250px;
+
+}
+.Logos {
+  display: flex;
+  gap: 50px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  padding: 20px;
+  margin-top: 100px;
+}
+
+.Logos img {
+  width: 250px;
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.Logos img:hover {
+  transform: translateY(-10px);
+}
+
+.stats-section {
+    background: linear-gradient(90deg, #ffb300, #ffcc33, #ff9800);
+    padding: 60px 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+.stat {
+    margin: 20px;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background:
+    conic-gradient(#000 var(--value) * 1%, #ffab00 calc(var(--value) * 1%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.5s;
+    border: 10px solid black;
+}
+
+
+.circle::before {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    background: #fff;
+    border-radius: 50%;
+    border: 10px solid black;
+}
+
+.circle span {
+    position: relative;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+}
+
+.stat p {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+}
+.Divisions{
+  display: flex;
+  justify-content:center;
+  align-content: center;
+  align-items: center;
+  gap:80px;
+  color: white;
+
+}
+.footlogo{
+  width: 25%;
+  color: white;
+}
+.footlogo img{
+  color: white;
+}
+.headquaters{
+  width: 25%;
+}
+.quicklinks{
+  width: 25%;
+}
+.Company{
+  width: 25%;
+}
+footer{
+  background-color: #f5c400;
+  font-size: smaller;
+  margin-top: 50px;
+  color: white;
+
+  
+}
+footer a{
+  text-decoration: none;
+  color: white;
+}
+:root{
+      --bg: #eef4fb;
+      --yellow: #f4d32b;
+      --white: #ffffff;
+      --shadow: rgba(12,20,40,0.12);
+    }
+
+ html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:#0b1b2b}
+    .section {
+      max-width: 1100px;
+      margin: 36px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h2 {
+      margin: 6px 0 26px;
+      font-size: 26px;
+      letter-spacing: 0.2px;
+    }
+
+    
+    .stage{
+      position: relative;
+      width: 560px;  
+      height: 520px;
+      margin: 0 auto;
+    }
+
+    
+    .ring {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 420px;
+      height: 420px;
+      transform: translate(-50%,-50%);
+      border-radius: 50%;
+      background: var(--white);
+      box-sizing: border-box;
+      border: 36px solid var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    
+    .logo {
+      width: 250px;
+      max-width: 60%;
+      display: block;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.06));
+    }
+
+    
+    .badge {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 0 6px 18px var(--shadow);
+      z-index: 3; 
+    }
+
+    .badge::after{
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+
+    
+    .b-01{
+      left: calc(50% - 180px);  
+      top: calc(50% - 165px);   
+      color: #0d8bff;
+    }
+    .b-01::after{
+      left: -14px;
+      top: 20px;
+      background: #00b1ff;
+    }
+
+    
+    .b-02{
+      left: calc(50% + 165px);
+      top: calc(50% - 20px);
+      color: #ff4a3d;
+    }
+    .b-02::after{
+      left: 54px;
+      top: 22px;
+      background: #ff7b6f;
+    }
+
+    
+    .b-03{
+      left: calc(50% - 33px);
+      top: calc(50% + 160px);
+      color: #0d8bff;
+    }
+    .b-03::after{
+      left: 28px;
+      top: 58px;
+      background: #0275d8;
+    }
+
+    
+    .small-dot {
+      position: absolute;
+      left: calc(50% - 6px);
+      top: calc(50% + 220px);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background:#0d8bff;
+      box-shadow: 0 4px 10px rgba(13,139,255,0.18);
+      z-index:2;
+    }
+
+    
+    .text-left, .text-right, .text-bottom{
+      position: absolute;
+      width: 220px;
+      font-size: 14px;
+      color:#233044;
+    }
+    .text-left{ right: calc(50% + 240px); top: calc(50% - 20px); text-align: left }
+    .text-right{ left: calc(50% + 240px); top: calc(50% - 20px); text-align: right }
+    .text-bottom{ left: 50%; transform: translateX(-50%); top: calc(50% + 220px); text-align:center; top:100% }
+
+    .text-left h4, .text-right h4, .text-bottom h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .text-left p, .text-right p, .text-bottom p {
+      margin: 0;
+      color: #6b7887;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+    .sections {
+    padding: 80px 20px;
+    position: relative;
+  }
+
+  .avatar-container img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .avatar1 { top: 40px; left: 30%; }
+  .avatar2 { top: 20px; right: 30%; }
+  .avatar3 { top: 200px; left: 90%; }
+  .avatar4 { top: 200px; right: 90%; }
+  .avatar5 { bottom: 60px; left: 30%; }
+  .avatar6 { bottom: 60px; right: 30%; }
+
+  h2 {
+    color: #f6c800;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    font-size: 14px;
+  }
+
+  .play-btn {
+    margin-top: 20px;
+    width: 55px;
+    height: 55px;
+    background: #ffd000;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+  }
+
+  .subscribe-box {
+    margin: 60px auto;
+    background: linear-gradient(to right, #666600, #ffdf00);
+    padding: 30px;
+    width: 450px;
+    border-radius: 10px;
+    color: #fff;
+  }
+
+  .subscribe-box input {
+    padding: 10px;
+    width: 65%;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .subscribe-box button {
+    padding: 10px 20px;
+    background: #ffaa00;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <div class="icons">
+        <a
+          href="https://en.wikipedia.org/wiki/Genesys_Info_X?fbclid=PAZXh0bgNhZW0CMTEAAadlyvZLwo3z3fKrOiuihegfGqqbSICz1MVXxo9HZZkSllK2Hdy4xGE7lQHlHA_aem_yTrRsqmASmYfr7NWkaNWFg"
+          ><i class="fab fa-wordpress"></i
+        ></a>
+        <a href="https://www.instagram.com/genesys.info_x/?__pwa=1"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.linkedin.com/company/genesys-info-x/"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </div>
+      <div class="details">
+        <a href="https://mail.hostinger.com/">Employee Login</a><br />
+        <a href="#"
+          >Genesys informatics India Pvt Limited,Hyderabad,Telangana-500081</a
+        ><br />
+        <a href="#">info@genesysinfox.com</a><br />
+      </div>
+    </div>
+    <nav>
+      <img
+        src="https://genesysinfox.com/wp-content/uploads/2025/07/GENESYS-INFO-X-logo-web-2048x1806.png"
+        width="180"
+        height="90"
+        alt="Genesys Info X Logo"
+      />
+
+      <ul>
+        <li><a href="#">Home</a></li>
+
+        <li>
+          <a href="#">Services </a>
+          <ul>
+            <li><a href="#">Healthcare Solutions</a></li>
+            <li><a href="#">Software Development</a></li>
+            <li><a href="#">Semiconductor Solutions</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">AI Projects</a></li>
+        <li><a href="#">Products & Solutions</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <button>Contact us</button>
+    </nav>
+    <div class="slider">
+      <div class="overlay"><button>EXPLORE</button></div>
+      <div class="card">
+        <div id="one"><h3>Technology</h3></div>
+        <div id="two">Healthcare</div>
+        <div id="three">Semiconductors</div>
+      </div>
+    </div>
+    <div class="whoweare">
+      <div id="img">
+        <img
+          src="https://genesysinfox.com/wp-content/uploads/2020/02/image1-home5.png"
+        />
+      </div>
+      <div>
+        <div id="content">
+          <h5>WHO WE ARE</h5>
+          <h2>
+            Empowering Businesses with Technology, Healthcare, and Semiconductor
+            Solutions
+          </h2>
+          <p>
+            <big
+              >GENESYS INFO X is a global IT development and consulting firm
+              committed to driving digital transformation across industries
+              across glob.</big
+            >
+          </p>
+          <p>
+            With a strong presence in North America, South America, Africa,
+            Europe, and GCC countries, we deliver cutting-edge solutions in AI,
+            healthcare, and semiconductor technology. Our mission is to help
+            businesses thrive by enhancing operational efficiency, fostering
+            innovation, and ensuring long-term growth.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="our">
+  <div class="ourstrength">
+    <h6>OUR STRENGTH</h6>
+    <h3>Streamlining processes, enhancing work efficiency & productivity</h3>
+
+    <p>
+      We are more than just an IT development and consulting firm—we are your strategic partner in driving digital transformation. With a strong presence across global markets, we specialize in AI-driven solutions, cutting-edge semiconductor technologies, and end-to-end IT consulting. Our mission is to empower businesses across industries like healthcare, finance, real estate, and manufacturing with innovative technologies that optimize performance, enhance operational efficiency, and future-proof growth. From customized enterprise software to advanced semiconductor solutions, we deliver excellence through technology.
+    </p>
+
+    <div class="number">
+      <div class="number-box">
+        <h4>200+</h4>
+        <span>Projects<br>Delivered</span>
+      </div>
+
+      <div class="number-box">
+        <h4>50+</h4>
+        <span>Industry<br>Experts</span>
+      </div>
+
+      <div class="number-box">
+        <h4>25+</h4>
+        <span>Industries<br>Served</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card-item1">
+      <div class="icon1"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-gear-wide-connected" viewBox="0 0 16 16">
+  <path d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5m0-1a4.998 4.998 0 0 0-7.557-3.779l2.834 3.78zM5.048 3.967l-.087.065zm-.431.355A4.98 4.98 0 0 0 3.002 8c0 1.455.622 2.765 1.615 3.678L7.375 8zm.344 7.646.087.065z"/>
+</svg></div>
+      <h3>Driving Innovation</h3>
+      <p>We leverage emerging technologies to create transformative solutions for evolving industries.</p>
+    </div>
+
+    <div class="card-item2">
+      <div class="icon2"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-globe2" viewBox="0 0 16 16">
+  <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855q-.215.403-.395.872c.705.157 1.472.257 2.282.287zM4.249 3.539q.214-.577.481-1.078a7 7 0 0 1 .597-.933A7 7 0 0 0 3.051 3.05q.544.277 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9 9 0 0 1-1.565-.667A6.96 6.96 0 0 0 1.018 7.5zm1.4-2.741a12.3 12.3 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332M8.5 5.09V7.5h2.99a12.3 12.3 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.6 13.6 0 0 1 7.5 10.91V8.5zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741zm-3.282 3.696q.18.469.395.872c.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a7 7 0 0 1-.598-.933 9 9 0 0 1-.481-1.079 8.4 8.4 0 0 0-1.198.49 7 7 0 0 0 2.276 1.522zm-1.383-2.964A13.4 13.4 0 0 1 3.508 8.5h-2.49a6.96 6.96 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667m6.728 2.964a7 7 0 0 0 2.275-1.521 8.4 8.4 0 0 0-1.197-.49 9 9 0 0 1-.481 1.078 7 7 0 0 1-.597.933M8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855q.216-.403.395-.872A12.6 12.6 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.96 6.96 0 0 0 14.982 8.5h-2.49a13.4 13.4 0 0 1-.437 3.008M14.982 7.5a6.96 6.96 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008zM11.27 2.461q.266.502.482 1.078a8.4 8.4 0 0 0 1.196-.49 7 7 0 0 0-2.275-1.52c.218.283.418.597.597.932m-.488 1.343a8 8 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"/>
+</svg></div>
+      <h3>Empowering Collaboration</h3>
+      <p>We foster strong partnerships and open communication to achieve shared goals.</p>
+    </div>
+
+    <div class="card-item3">
+      <div class="icon3"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/>
+</svg></div>
+      <h3>Results-Driven Focus</h3>
+      <p>We prioritize measurable outcomes, delivering impactful and sustainable success.</p>
+    </div>
+
+    <div class="card-item4">
+      <div class="icon4"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-rocket-takeoff" viewBox="0 0 16 16">
+  <path d="M9.752 6.193c.599.6 1.73.437 2.528-.362s.96-1.932.362-2.531c-.599-.6-1.73-.438-2.528.361-.798.8-.96 1.933-.362 2.532"/>
+  <path d="M15.811 3.312c-.363 1.534-1.334 3.626-3.64 6.218l-.24 2.408a2.56 2.56 0 0 1-.732 1.526L8.817 15.85a.51.51 0 0 1-.867-.434l.27-1.899c.04-.28-.013-.593-.131-.956a9 9 0 0 0-.249-.657l-.082-.202c-.815-.197-1.578-.662-2.191-1.277-.614-.615-1.079-1.379-1.275-2.195l-.203-.083a10 10 0 0 0-.655-.248c-.363-.119-.675-.172-.955-.132l-1.896.27A.51.51 0 0 1 .15 7.17l2.382-2.386c.41-.41.947-.67 1.524-.734h.006l2.4-.238C9.005 1.55 11.087.582 12.623.208c.89-.217 1.59-.232 2.08-.188.244.023.435.06.57.093q.1.026.16.045c.184.06.279.13.351.295l.029.073a3.5 3.5 0 0 1 .157.721c.055.485.051 1.178-.159 2.065m-4.828 7.475.04-.04-.107 1.081a1.54 1.54 0 0 1-.44.913l-1.298 1.3.054-.38c.072-.506-.034-.993-.172-1.418a9 9 0 0 0-.164-.45c.738-.065 1.462-.38 2.087-1.006M5.205 5c-.625.626-.94 1.351-1.004 2.09a9 9 0 0 0-.45-.164c-.424-.138-.91-.244-1.416-.172l-.38.054 1.3-1.3c.245-.246.566-.401.91-.44l1.08-.107zm9.406-3.961c-.38-.034-.967-.027-1.746.163-1.558.38-3.917 1.496-6.937 4.521-.62.62-.799 1.34-.687 2.051.107.676.483 1.362 1.048 1.928.564.565 1.25.941 1.924 1.049.71.112 1.429-.067 2.048-.688 3.079-3.083 4.192-5.444 4.556-6.987.183-.771.18-1.345.138-1.713a3 3 0 0 0-.045-.283 3 3 0 0 0-.3-.041Z"/>
+  <path d="M7.009 12.139a7.6 7.6 0 0 1-1.804-1.352A7.6 7.6 0 0 1 3.794 8.86c-1.102.992-1.965 5.054-1.839 5.18.125.126 3.936-.896 5.054-1.902Z"/>
+</svg></div>
+      <h3>Commitment to Excellence</h3>
+      <p>We uphold the highest standards of quality, reliability, and performance.</p>
+    </div>
+  </div>
+</div>
+<div class="blocks">
+  <div class="CD">
+  <div class="Consulting">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-easel2" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 0a.5.5 0 0 1 .447.276L8.81 1h4.69A1.5 1.5 0 0 1 15 2.5V11h.5a.5.5 0 0 1 0 1h-2.86l.845 3.379a.5.5 0 0 1-.97.242L12.11 14H3.89l-.405 1.621a.5.5 0 0 1-.97-.242L3.36 12H.5a.5.5 0 0 1 0-1H1V2.5A1.5 1.5 0 0 1 2.5 1h4.691l.362-.724A.5.5 0 0 1 8 0M2 11h12V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5zm9.61 1H4.39l-.25 1h7.72z"/>
+</svg>
+    <h2>Digital Strategy & Consulting</h2>
+    <p>We develop comprehensive digital strategies aligned with your business goals, providing expert consulting to navigate the evolving tech landscape.</p>
+  </div>
+  <div class="dataanalysics">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bug-fill" viewBox="0 0 16 16">
+  <path d="M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A5 5 0 0 0 3 6h10a5 5 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A5 5 0 0 0 8 1a5 5 0 0 0-2.731.811l-.29-.956z"/>
+  <path d="M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975"/>
+</svg>
+    <h2>Data Analytics & Business Intelligence</h2>
+    <p>We empower you with data-driven insights through advanced analytics and business intelligence solutions, helping you make informed decisions and achieve your strategic objectives.</p>
+  </div>
+</div>
+<div class="IIS">
+  <div class="IT">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/>
+</svg>
+    <h2>IT Infrastructure Management</h2>
+    <p>We provide comprehensive IT infrastructure management services, ensuring your systems are secure, reliable, and optimized for peak performance.</p>
+  </div>
+  <div class="image"><img src="https://genesysinfox.com/wp-content/uploads/2020/02/image2-home5.png" height="400px" width="400px"></div>
+  <div class="SD">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-code-square" viewBox="0 0 16 16">
+  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+  <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0m2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0"/>
+</svg>
+    <h2>Software Development & design</h2>
+    <p>We build bespoke software solutions tailored to your specific business needs, leveraging cutting-edge technologies and agile development methodologies</p>
+  </div>
+  </div>
+  <div class="AICS">
+    <div class="AI">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-android" viewBox="0 0 16 16">
+  <path d="M2.76 3.061a.5.5 0 0 1 .679.2l1.283 2.352A8.9 8.9 0 0 1 8 5a8.9 8.9 0 0 1 3.278.613l1.283-2.352a.5.5 0 1 1 .878.478l-1.252 2.295C14.475 7.266 16 9.477 16 12H0c0-2.523 1.525-4.734 3.813-5.966L2.56 3.74a.5.5 0 0 1 .2-.678ZM5 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+</svg>
+      <h2>AI & Machine Learning Solutions</h2>
+      <p>We harness the power of AI and machine learning to create intelligent solutions that automate processes, optimize performance, and drive data-driven insights.</p>
+    </div>
+    <div class="CS">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0m-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0"/>
+</svg>
+      <h2>Cloud Solutions & Integration</h2>
+      <p>We help you migrate to the cloud, integrate cloud services, and optimize your cloud infrastructure for scalability, security, and cost-effectiveness.</p>
+    </div>
+
+  </div>
+
+</div>
+<div class="Logos">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/38.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/39.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/2.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/3.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/4.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/5.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/6.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/7.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/8.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/9.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/10.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/11.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/12.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/13.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/14.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/15.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/16.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/17.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/18.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/19.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/20.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/21.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/22.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/23.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/24.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/25.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/27.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/28.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/29.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/30.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/31.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/32.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/33.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/34.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/35.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/36.png">
+  <img src="https://genesysinfox.com/wp-content/uploads/2025/02/37.png">
+</div>
+<section class="stats-section">
+    <div class="stat">
+        <div class="circle" style="--value: 95;">
+            <span>95%</span>
+        </div>
+        <p>Happy Clients</p>
+    </div>
+
+    <div class="stat">
+        <div class="circle" style="--value: 100;">
+            <span>100%</span>
+        </div>
+        <p>Project Delivered</p>
+    </div>
+
+    <div class="stat">
+        <div class="circle" style="--value: 40;">
+            <span>40%</span>
+        </div>
+        <p>Reduction in Operational Costs</p>
+    </div>
+
+    <div class="stat">
+        <div class="circle" style="--value: 85;">
+            <span>85%</span>
+        </div>
+        <p>Expert Team Utilization</p>
+    </div>
+</section>
+<section class="section">
+    <h2>Our Priority Working Sectors</h2>
+
+    <div class="stage">
+  
+      <div class="text-left">
+        <h4>Software Development</h4>
+        <p>Building the software that drives your business.</p>
+      </div>
+
+      <div class="text-right">
+        <h4>Healthcare Solutions</h4>
+        <p>Transforming healthcare through technology.</p>
+      </div>
+
+      <div class="text-bottom">
+        <h4>Semiconductor Solutions</h4>
+        <p>Get into the digital world with semiconductor innovations.</p>
+      </div>
+
+      
+      <div class="ring" aria-hidden="true">
+ 
+        <img class="logo"
+             src="https://genesysinfox.com/wp-content/uploads/2025/07/GENESYS-INFO-X-logo-web-2048x1806.png"
+             alt="Genesys Info X logo">
+      </div>
+
+    
+      <div class="badge b-01">01</div>
+      <div class="badge b-02">02</div>
+      <div class="badge b-03">03</div>
+      <div class="small-dot" aria-hidden="true"></div>
+    </div>
+  </section>
+  <div class="sections">
+  <div class="avatar-container">
+    <img src="https://i.pravatar.cc/60?img=1" class="avatar1">
+    <img src="https://i.pravatar.cc/60?img=2" class="avatar2">
+    <img src="https://i.pravatar.cc/60?img=3" class="avatar3">
+    <img src="https://i.pravatar.cc/60?img=4" class="avatar4">
+    <img src="https://i.pravatar.cc/60?img=5" class="avatar5">
+    <img src="https://i.pravatar.cc/60?img=6" class="avatar6">
+  </div>
+
+  <center><h2>Transforming Businesses<br>Through Technology</h2></center>
+  <center><p>Driving Growth and Efficiency for Businesses Worldwide</p></center>
+
+  <center><div class="play-btn">▶</div></center>
+
+  <div class="subscribe-box">
+    <p><strong>Subscribe for Newsletter</strong><br>Get recent updates from GENESYS INFO X</p>
+    <input type="text" placeholder="Your email">
+    <button>Subscribe</button>
+  </div>
+</div>
+<footer>
+  <div class="Divisions">
+  <div class="footlogo">
+    <img src="https://genesysinfox.com/wp-content/uploads/2020/02/Logo.png" height="150px" width="150px">
+    <p style="color: white;">GENESYS INFO X specializes in the Technology, Healthcare, and Semiconductor industries, driving operational efficiency and client success.</p>
+    <a href="https://en.wikipedia.org/wiki/Genesys_Info_X?fbclid=PAZXh0bgNhZW0CMTEAAadlyvZLwo3z3fKrOiuihegfGqqbSICz1MVXxo9HZZkSllK2Hdy4xGE7lQHlHA_aem_yTrRsqmASmYfr7NWkaNWFg"><i class="fab fa-wordpress"></i></a>
+        <a href="https://www.instagram.com/genesys.info_x/?__pwa=1"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/genesys-info-x/"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="headquaters">
+<h2 style="color: white;">Head Quaters</h2>
+<p style="color: white;">Address : Genesys Informatics India Pvt Ltd,
+
+Cyber Gateway, Block C, Wing 2, 3rd Floor, Phase 2, Hitec City, Hyderabad, Telangana 500081.</p>
+<p style="color: white;">Ph.no : +91 6309357756</p>
+<p style="color: white;">Email ID: info@genesysinfox.com</p>
+  </div>
+  <div class="quicklinks" >
+    <h2 style="color: white;">Quick Links</h2>
+    <a href="">Healthcare Solutions</a><br>
+    <a href="">Software Development</a><br>
+    <a href="">Semiconductor Solutions</a><br>
+    <a href="">Employee Login</a><br>
+
+  </div>
+  <div class="Company">
+    <h2 style="color: white;"> Company</h2>
+<a href="">Cookies</a><br>
+<a href="">Terms&Conditions</a><br>
+<a href="">Privacy Policy</a><br>
+  </div>
+  </div><hr>
+<div class="copyright">
+  <bold><center><p style="color: white;">Copyright © 2025 Genesysinfox.com |  All Rights Reserved.</p></center></bold>
+
+</div>
+</footer>
+  </body>
+</html>
